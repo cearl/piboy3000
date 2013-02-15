@@ -1,10 +1,11 @@
-#
+#!/usr/bin/python
 #seperate functions
 # 
 #
 import pygame, time,sys, random, os, glob
 from pygame.locals import *
-random.seed()
+#attempt to provide some randomness
+random.seed("gerHork;CobzibMekteajtoxjurvizjanJeKicvocsurc")
 pygame.init()
 music_files = glob.glob("./music/*")
 music_list = []
