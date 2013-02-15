@@ -2,13 +2,19 @@
 #seperate functions
 # 
 #
-import pygame, time,sys, random, os, glob
+import pygame, time,sys, random, os, glob, OsmApi
 from pygame.locals import *
 #attempt to provide some randomness
 random.seed("gerHork;CobzibMekteajtoxjurvizjanJeKicvocsurc")
 pygame.init()
 music_files = glob.glob("./music/*")
 music_list = []
+pygame.mixer.init()
+
+def gps_osm():
+    MyApi = OsmApi.OsmApi()
+    print MyApi.NodeGet(123)
+
 
 def key_bindings():
     count = len(music_list)
@@ -44,10 +50,10 @@ def main():
                 if (event.key == K_ESCAPE):
                     sys.exit(0)
                 if (event.key == K_UP):    
-                     print("up")
+                     gps_osm()
                 if (event.key == K_RIGHT):
                     background = pygame.image.load("pipboy-bg2.png")
-
+                    background = pygame.image.load("pipboy-bg2.png").convert()
                 if (event.key == K_LEFT):
                     background = pygame.image.load("map.png")
                     background = pygame.image.load("map.png").convert()
@@ -58,7 +64,8 @@ def main():
                     pygame.mixer.music.load(music_list[random.randint(0, count)])
                     pygame.mixer.music.play()
         #####################
-
+        ## Pipboy Overlay ###
+        
         count = len(music_list)
         music_state = pygame.mixer.music.get_busy()
         if ( music_state == False):
