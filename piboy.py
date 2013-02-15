@@ -5,7 +5,7 @@
 import pygame, time,sys, random, os, glob, OsmApi
 from pygame.locals import *
 #attempt to provide some randomness
-random.seed("gerHork;CobzibMekteajtoxjurvizjanJeKicvocsurc")
+random.seed("gerHork;CobzibMekteajto3456@#$xjurvizjanJeKicvocsurc")
 pygame.init()
 music_files = glob.glob("./music/*")
 music_list = []
