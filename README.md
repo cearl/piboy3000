@@ -7,7 +7,7 @@ Features:
 =========
 
 * Puts all music in ./music folder into rotation
-
+* Key Bindings: Left and right change screens. n = next track, esc = exit
 
 
 piBoy 3000
