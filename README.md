@@ -1,7 +1,7 @@
 
 Piboy3000
 =========
-Attempt to bring a Pipboy 300 like tool to the Raspberry Pi.
+Attempt to bring a Pipboy 3000 like tool to the Raspberry Pi.
 
 Features:
 =========
