@@ -11,24 +11,9 @@ music_list = []
 
 def key_bindings():
     count = len(music_list)
-    for event in pygame.event.get():
-            if (event.type == KEYDOWN):
-                if (event.key == K_ESCAPE):
-                    sys.exit(0)
-                if (event.key == K_UP):    
-                     print("up")
-                if (event.key == K_RIGHT):
-                    background = pygame.image.load("pipboy-bg2.png")
-                    
-                if (event.key == K_LEFT):
-                    background = pygame.image.load("map.png")
-                    
-                if (event.key == K_DOWN):
-                    print("down")
-                if (event.key == K_n):
-                    pygame.mixer.music.load(music_list[random.randint(0, count)])
-                    pygame.mixer.music.play()
 
+    
+    return
 def find_music():
     for i in glob.glob("./music/*"):
         music_list.append(i)
@@ -50,7 +35,29 @@ def main():
     # Game Loop
     while keepGoing:
         clock.tick(30)
-        key_bindings()
+        screen.blit(background, (0, 0))
+
+        ###Key Bindings ####
+        for event in pygame.event.get():
+            if (event.type == KEYDOWN):
+                if (event.key == K_ESCAPE):
+                    sys.exit(0)
+                if (event.key == K_LEFT):    
+                     print("up")
+                if (event.key == K_RIGHT):
+                    background = pygame.image.load("pipboy-bg2.png")
+
+                if (event.key == K_UP):
+                    background = pygame.image.load("map.png")
+                    background = pygame.image.load("map.png").convert()
+
+                if (event.key == K_DOWN):
+                    print("down")
+                if (event.key == K_n):
+                    pygame.mixer.music.load(music_list[random.randint(0, count)])
+                    pygame.mixer.music.play()
+        #####################
+
         count = len(music_list)
         music_state = pygame.mixer.music.get_busy()
         if ( music_state == False):
@@ -82,8 +89,9 @@ def main():
 	 
 	
         # Draw the background to the screen buffer
-        screen.blit(background, (0, 0))
         # Flip the buffer
+
+        screen.blit(background, (0, 0))
         pygame.display.flip()
 
 if __name__ == '__main__':
