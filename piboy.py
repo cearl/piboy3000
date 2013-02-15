@@ -8,7 +8,6 @@ random.seed()
 pygame.init()
 music_files = glob.glob("./music/*")
 music_list = []
-
 def key_bindings():
     count = len(music_list)
     for event in pygame.event.get():
