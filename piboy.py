@@ -14,7 +14,6 @@ def key_bindings():
     for event in pygame.event.get():
             if (event.type == KEYDOWN):
                 if (event.key == K_ESCAPE):
-                    #pygame.mixer.music.fadeout(1)
                     sys.exit(0)
                 if (event.key == K_LEFT):
                     print("left")    
