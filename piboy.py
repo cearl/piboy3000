@@ -42,12 +42,12 @@ def main():
             if (event.type == KEYDOWN):
                 if (event.key == K_ESCAPE):
                     sys.exit(0)
-                if (event.key == K_LEFT):    
+                if (event.key == K_UP):    
                      print("up")
                 if (event.key == K_RIGHT):
                     background = pygame.image.load("pipboy-bg2.png")
 
-                if (event.key == K_UP):
+                if (event.key == K_LEFT):
                     background = pygame.image.load("map.png")
                     background = pygame.image.load("map.png").convert()
 
