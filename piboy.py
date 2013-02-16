@@ -27,7 +27,7 @@ def find_music():
          
 
 def main():
-    screen = pygame.display.set_mode((480, 272), pygame.NOFRAME)
+    screen = pygame.display.set_mode((640, 400),pygame.NOFRAME)
     pygame.display.set_caption("PipBoy 3000")
  
     # Background Image
@@ -61,16 +61,27 @@ def main():
                 if (event.key == K_DOWN):
                     print("down")
                 if (event.key == K_n):
-                    pygame.mixer.music.load(music_list[random.randint(0, count)])
-                    pygame.mixer.music.play()
+                    try:
+		        pygame.mixer.music.load(music_list[random.randint(0, count)])
+                        pygame.mixer.music.play()
+		    except:
+		        pygame.mixer.music.load(music_list[random.randint(0, count)])
+                        pygame.mixer.music.play()
+			main()
+
         #####################
         ## Pipboy Overlay ###
         
         count = len(music_list)
         music_state = pygame.mixer.music.get_busy()
         if ( music_state == False):
-            pygame.mixer.music.load(music_list[random.randint(0, count)])
-            pygame.mixer.music.play()                   
+            try:
+	        pygame.mixer.music.load(music_list[random.randint(0, count)])
+                pygame.mixer.music.play()                   
+	    except:
+	        pygame.mixer.music.load(music_list[random.randint(0, count)])
+                pygame.mixer.music.play()
+		main()
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -78,7 +89,7 @@ def main():
  
         # Fill the background
         screen.fill((0, 0, 0))
-        background = pygame.transform.scale(background,(480, 272)) 
+        background = pygame.transform.scale(background,(640,400)) 
         # Reset alpha
         if (alphaCount >= 255):
             alphaCount = 255
