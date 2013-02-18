@@ -2,8 +2,9 @@
 #seperate functions
 # 
 #
-import pygame, time,sys, random, os, glob, OsmApi
+import pygame, time,sys, random, os, glob, OsmApi, subprocess
 from pygame.locals import *
+from pynmea import nmea
 #attempt to provide some randomness
 random.seed("gerHork;CobzibMekteajto3456@#$xjurvizjanJeKicvocsurc")
 pygame.init()
@@ -11,10 +12,10 @@ music_files = glob.glob("./music/*")
 music_list = []
 pygame.mixer.init()
 
-def gps_osm():
-    MyApi = OsmApi.OsmApi()
-    print MyApi.NodeGet(123)
-
+def gps_nmea():
+    gps_data = subprocess.os("blah blah")
+    gpgga = nmea.GPGGA()
+    gpgga.parse(data)
 
 def key_bindings():
     count = len(music_list)
@@ -27,7 +28,7 @@ def find_music():
          
 
 def main():
-    screen = pygame.display.set_mode((640, 400),pygame.NOFRAME)
+    screen = pygame.display.set_mode((640, 400))
     pygame.display.set_caption("PipBoy 3000")
  
     # Background Image
@@ -72,6 +73,8 @@ def main():
         #####################
         ## Pipboy Overlay ###
         
+
+        ##
         count = len(music_list)
         music_state = pygame.mixer.music.get_busy()
         if ( music_state == False):
